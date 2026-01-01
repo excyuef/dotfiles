@@ -1,0 +1,4 @@
+.config/yasb/yasb.log
+.config/yasb/todo.json
+.config/yasb/notes.json
+AppData/Local/nvim/LICENSE
