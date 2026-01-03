@@ -4,5 +4,8 @@
 	process = git-lfs filter-process
 	required = true
 [user]
-	name = rhafi
-	email = excyuef@gmail.com
+	name = Rhafi Aulia Rahman
+	email = rhafiauliarahman818181@gmail.com
+[core]
+	editor = nvim
+	autocrlf = true

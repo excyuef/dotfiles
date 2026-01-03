@@ -15,12 +15,12 @@ bars:
       position: "top"
       center: false
     animation:
-      enabled: true
+      enabled: false
       duration: 400
     blur_effect:
-      enabled: true
+      enabled: false
       acrylic: false
-      dark_mode: true
+      dark_mode: false
       round_corners: true
       round_corners_type: "normal"
       border_color: "None"
@@ -36,20 +36,20 @@ bars:
       bottom: 0
       right: 8
     widgets:
-      left: 
-      - "glazewm_workspaces"
-      - "taskbar"
+      left:
+        - "glazewm_workspaces"
+        - "taskbar"
+        - "todo"
       center:
-      - "clock"
-      - "apps"
+        - "clock"
+        - "apps"
       right:
-      - "systray"
-      - "grouped_widgets"
-      - "media"
-      - "wallpaper"
-      - "volume"
-      - "battery"
-      - "power_menu"
+        - "systray"
+        - "grouped_widgets"
+        - "media"
+        - "wallpaper"
+        - "battery"
+        - "power_menu"
 widgets:
   media:
     type: "yasb.media.MediaWidget"
@@ -62,16 +62,17 @@ widgets:
         on_middle: "toggle_play_pause"
         on_right: "toggle_label"
       max_field_size:
-        label: 16
-        label_alt: 16
+        label: 15
+        label_alt: 30
       show_thumbnail: true
       controls_only: false
-      controls_left: false
-      controls_hide: true
-      thumbnail_edge_fade: true
+      controls_left: true
+      controls_hide: false
+      thumbnail_edge_fade: false
       thumbnail_padding: 32
+      thumbnail_alpha: 140
       scrolling_label:
-        enabled: true
+        enabled: false
         update_interval_ms: 50
         style: "left"
         separator: " "
@@ -85,16 +86,16 @@ widgets:
         play: "\ue768"
         pause: "\ue769"
       media_menu:
-        blur: true
-        round_corners: true
+        blur: false
+        round_corners: false
         round_corners_type: "normal"
         border_color: "None"
         alignment: "right"
         direction: "down"
-        offset_top: 6
+        offset_top: 12
         offset_left: 0
         thumbnail_corner_radius: 4
-        thumbnail_size: 80
+        thumbnail_size: 100
         max_title_size: 60
         max_artist_size: 20
         show_source: true
@@ -140,7 +141,7 @@ widgets:
         size: 14
         thickness: 2
         color: "#91d7e3"
-        background_color: "#242739" 
+        background_color: "#242739"
       callbacks:
         on_left: "toggle_label"
       memory_thresholds:
@@ -158,8 +159,8 @@ widgets:
         size: 14
         thickness: 2
         color: "#91d7e3"
-        background_color: "#242739" 
-      update_interval: 2000
+        background_color: "#242739"
+      update_interval: 5000
       callbacks:
         on_right: "do_nothing"
   systray:
@@ -176,19 +177,19 @@ widgets:
       show_battery: false
       show_volume: false
       show_network: false
-      tooltip: true
+      tooltip: false
   home:
     type: "yasb.home.HomeWidget"
     options:
       label: "<span>\uf192</span>"
       menu_list:
-      - { title: "User Home", path: "~" }
-      - { title: "Download", path: "~\\Downloads" }
-      - { title: "Documents", path: "~\\Documents" }
-      - { title: "Pictures", path: "~\\Pictures" }
+        - { title: "User Home", path: "~" }
+        - { title: "Download", path: "~\\Downloads" }
+        - { title: "Documents", path: "~\\Documents" }
+        - { title: "Pictures", path: "~\\Pictures" }
       system_menu: true
       power_menu: true
-      blur: true
+      blur: false
       border_color: "None"
       container_padding:
         top: 0
@@ -241,8 +242,8 @@ widgets:
       label: "\uf011"
       uptime: true
       blur: false
-      blur_background: true
-      animation_duration: 200
+      blur_background: false
+      animation_duration: 300
       button_row: 3
       buttons:
         shutdown: ["\uf011", "Shut Down"]
@@ -255,7 +256,7 @@ widgets:
         top: 0
         left: 0
         bottom: 0
-        right: 6
+        right: 0
   notifications:
     type: "yasb.notifications.NotificationsWidget"
     options:
@@ -335,10 +336,7 @@ widgets:
     type: "yasb.grouper.GrouperWidget"
     options:
       class_name: "grouped-widgets"
-      widgets: [
-        "memory",
-        "cpu",
-      ]
+      widgets: ["memory", "cpu"]
       container_padding:
         top: 0
         left: 2
@@ -355,11 +353,11 @@ widgets:
     options:
       label: "<span>\uf03e</span>"
       image_path: "C:\\Users\\Rhafi Aulia Rahman\\Pictures\\Wallpaper\\"
-      change_automatically: false # Automatically change wallpaper
+      change_automatically: false
       update_interval: 60
       gallery:
         enabled: true
-        blur: true
+        blur: false
         image_width: 250
         image_per_page: 5
         show_buttons: false
@@ -376,18 +374,33 @@ widgets:
       label: "{data}"
       app_list:
         - { icon: "\ueb03", launch: "cmd /c Taskmgr" }
-        - { icon: "\uf1ff",launch: "C:\\Users\\Rhafi Aulia Rahman\\AppData\\Local\\Discord\\app-1.0.9219\\Discord.exe" }
-        - { icon: "\udb82\ude1e",launch: "C:\\Users\\Rhafi Aulia Rahman\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe" }
-        - { icon: "\uf489",launch: "C:\\Program Files\\WezTerm\\wezterm-gui.exe" }
+        - {
+            icon: "\uf1ff",
+            launch: "C:\\Users\\Rhafi Aulia Rahman\\AppData\\Local\\Discord\\app-1.0.9219\\Discord.exe",
+          }
+        - {
+            icon: "\udb82\ude1e",
+            launch: "C:\\Users\\Rhafi Aulia Rahman\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+          }
+        - {
+            icon: "\uf489",
+            launch: "C:\\Program Files\\WezTerm\\wezterm-gui.exe",
+          }
   clock:
     type: "yasb.clock.ClockWidget"
     options:
       label: "{%a, %d %b %H:%M}"
       label_alt: "{%A, %d %B %Y %H:%M:%S}"
       timezones: []
-      calendar: 
+      calendar:
+        blur: false
+        round_corners: true
+        round_corners_type: "normal"
         alignment: "center"
-        offset_top: 6
+        direction: "down"
+        offset_top: 12
+        offset_left: 0
+        extended: false
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
     options:
@@ -399,7 +412,7 @@ widgets:
       animation:
         enabled: true
       preview:
-        enabled: true
+        enabled: false
         width: 450
         delay: 400
         padding: 12
@@ -411,7 +424,7 @@ widgets:
     type: "yasb.battery.BatteryWidget"
     options:
       label: "{icon} {percent}%"
-      label_alt: "{icon} {percent}% | time: {time_remaining}"
+      label_alt: "{icon} {percent}% | Inget waktu bang"
       charging_options:
         icon_format: "{charging_icon}"
       status_icons:
@@ -423,7 +436,47 @@ widgets:
         icon_full: "\udb80\udc79"
       status_thresholds:
         critical: 10
-        low: 45
-        medium: 75
-        high: 85
+        low: 30
+        medium: 60
+        high: 99
         full: 100
+  todo:
+    type: "yasb.todo.TodoWidget"
+    options:
+      label: "\uf0ae {count}/{completed}"
+      label_alt: "\uf0ae Tasks: {count}"
+      # data_path: "~/Documents/my-todos.json"  # Optional: custom JSON file path
+      menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "system"
+        alignment: "center"
+        direction: "down"
+        offset_top: 8
+        offset_left: 0
+      icons:
+        add: "\uf501 New Task"
+        edit: "Edit"
+        delete: "Delete"
+        date: "\ue641"
+        category: "\uf412"
+        checked: "\udb80\udd34"
+        unchecked: "\udb80\udd30"
+        sort: "\ueab4"
+        no_tasks: "\uf4a0"
+      categories:
+        default:
+          label: "General"
+        soon:
+          label: "Complete soon"
+        today:
+          label: "End of day"
+        urgent:
+          label: "Urgent"
+        important:
+          label: "Important"
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"

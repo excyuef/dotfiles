@@ -37,19 +37,19 @@ bars:
       right: 8
     widgets:
       left:
-      - "glazewm_workspaces"
-      - "taskbar"
-      - "todo"
+        - "glazewm_workspaces"
+        - "taskbar"
+        - "todo"
       center:
-      - "clock"
-      - "apps"
+        - "clock"
+        - "apps"
       right:
-      - "systray"
-      - "grouped_widgets"
-      - "media"
-      - "wallpaper"
-      - "battery"
-      - "power_menu"
+        - "systray"
+        - "grouped_widgets"
+        - "media"
+        - "wallpaper"
+        - "battery"
+        - "power_menu"
 widgets:
   media:
     type: "yasb.media.MediaWidget"
@@ -62,7 +62,7 @@ widgets:
         on_middle: "toggle_play_pause"
         on_right: "toggle_label"
       max_field_size:
-        label: 20
+        label: 15
         label_alt: 30
       show_thumbnail: true
       controls_only: false
@@ -86,16 +86,16 @@ widgets:
         play: "\ue768"
         pause: "\ue769"
       media_menu:
-        blur: true
-        round_corners: true
+        blur: false
+        round_corners: false
         round_corners_type: "normal"
         border_color: "None"
         alignment: "right"
         direction: "down"
-        offset_top: 6
+        offset_top: 12
         offset_left: 0
         thumbnail_corner_radius: 4
-        thumbnail_size: 80
+        thumbnail_size: 100
         max_title_size: 60
         max_artist_size: 20
         show_source: true
@@ -183,13 +183,13 @@ widgets:
     options:
       label: "<span>\uf192</span>"
       menu_list:
-      - { title: "User Home", path: "~" }
-      - { title: "Download", path: "~\\Downloads" }
-      - { title: "Documents", path: "~\\Documents" }
-      - { title: "Pictures", path: "~\\Pictures" }
+        - { title: "User Home", path: "~" }
+        - { title: "Download", path: "~\\Downloads" }
+        - { title: "Documents", path: "~\\Documents" }
+        - { title: "Pictures", path: "~\\Pictures" }
       system_menu: true
       power_menu: true
-      blur: true
+      blur: false
       border_color: "None"
       container_padding:
         top: 0
@@ -242,7 +242,7 @@ widgets:
       label: "\uf011"
       uptime: true
       blur: false
-      blur_background: true
+      blur_background: false
       animation_duration: 300
       button_row: 3
       buttons:
@@ -256,7 +256,7 @@ widgets:
         top: 0
         left: 0
         bottom: 0
-        right: 6
+        right: 0
   notifications:
     type: "yasb.notifications.NotificationsWidget"
     options:
@@ -336,10 +336,7 @@ widgets:
     type: "yasb.grouper.GrouperWidget"
     options:
       class_name: "grouped-widgets"
-      widgets: [
-        "memory",
-        "cpu",
-      ]
+      widgets: ["memory", "cpu"]
       container_padding:
         top: 0
         left: 2
@@ -356,11 +353,11 @@ widgets:
     options:
       label: "<span>\uf03e</span>"
       image_path: "C:\\Users\\Rhafi Aulia Rahman\\Pictures\\Wallpaper\\"
-      change_automatically: false # Automatically change wallpaper
+      change_automatically: false
       update_interval: 60
       gallery:
         enabled: true
-        blur: true
+        blur: false
         image_width: 250
         image_per_page: 5
         show_buttons: false
@@ -377,9 +374,18 @@ widgets:
       label: "{data}"
       app_list:
         - { icon: "\ueb03", launch: "cmd /c Taskmgr" }
-        - { icon: "\uf1ff",launch: "C:\\Users\\Rhafi Aulia Rahman\\AppData\\Local\\Discord\\app-1.0.9219\\Discord.exe" }
-        - { icon: "\udb82\ude1e",launch: "C:\\Users\\Rhafi Aulia Rahman\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe" }
-        - { icon: "\uf489",launch: "C:\\Program Files\\WezTerm\\wezterm-gui.exe" }
+        - {
+            icon: "\uf1ff",
+            launch: "C:\\Users\\Rhafi Aulia Rahman\\AppData\\Local\\Discord\\app-1.0.9219\\Discord.exe",
+          }
+        - {
+            icon: "\udb82\ude1e",
+            launch: "C:\\Users\\Rhafi Aulia Rahman\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+          }
+        - {
+            icon: "\uf489",
+            launch: "C:\\Program Files\\WezTerm\\wezterm-gui.exe",
+          }
   clock:
     type: "yasb.clock.ClockWidget"
     options:
@@ -387,8 +393,14 @@ widgets:
       label_alt: "{%A, %d %B %Y %H:%M:%S}"
       timezones: []
       calendar:
+        blur: false
+        round_corners: true
+        round_corners_type: "normal"
         alignment: "center"
-        offset_top: 6
+        direction: "down"
+        offset_top: 12
+        offset_left: 0
+        extended: false
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
     options:
@@ -441,7 +453,7 @@ widgets:
         border_color: "system"
         alignment: "center"
         direction: "down"
-        offset_top: 6
+        offset_top: 8
         offset_left: 0
       icons:
         add: "\uf501 New Task"

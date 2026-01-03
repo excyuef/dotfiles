@@ -15,8 +15,8 @@
     --surface2: #585b70;
     --surface1: #45475a;
     --surface0: #282936;
-    --base: rgb(17, 18, 19);
-    --crust: rgba(32, 32, 43, 0.5);
+    --base: rgba(17, 18, 19, 0.6);
+    --crust: rgba(0, 0, 0, 0.5);
 }
 * {
     font-size: 12px;
@@ -30,6 +30,8 @@
     padding: 0;
     margin: 0;
     background-color: var(--crust);
+    border-radius: 8px;
+    border: 1px solid rgba(116, 8, 116, 0.85);
 }
 /* Global styles for ToolTip */
 .tooltip {
@@ -128,9 +130,9 @@
     padding: 0px 2px;
 }
 .grouped-widgets .container {
-    background-color: var(--crust);
+    background-color: var(--base);
     margin: 4px 0 4px 0;
-    border-radius: 12px;
+    border-radius: 6px;
 }
 
 .komorebi-workspaces .offline-status {
@@ -169,7 +171,9 @@
 }
 
 .calendar {
-    background-color: var(--crust)
+    background-color: var(--base);
+    border-radius: 10px;
+    border: 1px solid var(--mauve);
 }
 
 .calendar .calendar-table,
@@ -231,7 +235,7 @@
     font-size: 13px;
 }
 .power-menu-popup {
-    background-color: transparent
+    background: transparent;
 }
 .power-menu-popup .button {
     padding: 0;
@@ -404,24 +408,49 @@
 .notification-widget .icon.new-notification {
     color: var(--blue);
 }
+
+/* media  */
+.media-widget .label {
+	background-color: rgba(0, 0, 0, 0.0);
+}
+.media-widget .btn {
+	color: #acb2c9;
+	padding: 0 4px;
+	margin: 4px 2px;
+	font-family: Segoe Fluent Icons;
+}
+.media-widget .btn:hover {
+	color: var(--green);
+}
+.media-widget .btn.play {
+	background-color: #313244;
+	border-radius: 4px;
+	font-size: 16px;
+}
+.media-widget .btn.disabled:hover,
+.media-widget .btn.disabled {
+	color: #4e525c;
+	font-size: 12px;
+	background-color: rgba(0, 0, 0, 0);
+}
+
 .media-menu {
-    min-width: 360px;
-    max-width: 360px;
-    background-color: var(--crust)
+    min-width: 380px;
+    max-width: 380px;
+    background-color: var(--crust);
+    border-radius: 10px;
 }
 .media-menu .title,
 .media-menu .artist,
 .media-menu .source {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
-    margin-left: 10px;
+    margin: 0 0 0 8px;
     font-family: 'Segoe UI'
 }
 .media-menu .artist {
     font-size: 13px;
     color: #6c7086;
-    margin-top: 0px;
-    margin-bottom: 8px;
 }
 .media-menu .source {
     font-size: 11px;
@@ -429,7 +458,7 @@
     font-weight: normal;
     border-radius: 3px;
     background-color: #bac2de;
-    padding: 2px 4px;
+    padding: 2px 5px;
 }
 .media-menu .source.firefox {
     background-color: #ff583b;
@@ -452,7 +481,7 @@
     font-family: "Segoe Fluent Icons";
     font-size: 14px;
     font-weight: 400;
-    margin: 10px 2px 0px 2px;
+    margin: 7px 2px 0px 2px;
     min-width: 40px;
     max-width: 40px;
     min-height: 40px;
@@ -479,7 +508,7 @@
     font-size: 13px;
     font-family: 'Segoe UI';
     color: #7f849c;
-    margin-top: 0px;
+    margin-top: 10px;
     min-width: 100px;
 }
 .media-menu .progress-slider {
@@ -592,98 +621,84 @@
 }
 
 .wallpapers-widget {
-    padding: 0 6px 0 6px;
+    padding: 0 6px;
 }
 
 .wallpapers-gallery-image {
     border: 4px solid transparent;
-    border-radius: 16px;
+    border-radius: 12px;
+    background-color: var(--mauve);
 }
-.wallpapers-gallery-image:hover {
-    border: 4px solid rgb(66, 68, 83);
-}
+
 .wallpapers-gallery-image.focused {
     border: 4px solid #54017bff;
+    width: 200px;
+    height: 200px;
 }
 
 .apps-widget {
-  background-color: var(--crust);
-	margin: 4px 0 4px 0;
-	border-radius: 12px;
-  padding: 0 8px;
+  background-color: var(--base);
+	margin: 4px 2px;
+	border-radius: 6px;
+  padding: 0 6px;
 }
 
 .taskbar-widget:hover {
   background-color: transparent;
 }
+
 .taskbar-widget .app-container {
-  border-radius: var(--radius-normal);
-  /* border-radius: 0; */
-  padding: 0 7px;
-  margin: 0 1px;
+  border-radius: 5px;
+  padding: 0 4px;
+  margin: 4px 2px;
 }
+
 .taskbar-widget .app-container:hover {
-  background-color: var(--bg-hover-primary);
+  background-color: var(--red);
 }
+
 .taskbar-widget .app-container.foreground {
   /* border-bottom: 2px solid var(--color-green); */
-  background-color: var(--bg-hover-third);
+  background-color: var(--green);
 }
+
 .taskbar-widget .app-container.flashing {
-  background-color: var(--color-red);
-}
-.taskbar-widget .app-container .app-title {
-  padding-left: 4px;
-}
-/* Taskbar preview popup is very limited in styling options, do not use margins/paddings here */
-.taskbar-preview {
-  border-radius: var(--radius-normal);
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--color-grey);
-}
-.taskbar-preview .header {
-  padding-bottom: 18px;
-  padding-top: var(--margin-normal);
-}
-.taskbar-preview .header .title {
-  color: var(--text-primary);
-  font-weight: var(--font-bold);
-  font-size: var(--text-normal);
+  background-color: var(--base);
 }
 
 .battery-widget .widget-container .label.status-low {
 	color: var(--red);
 	background: rgba(243, 139, 168, 0.245);
 	margin: 4px 0px 4px 0px;
-	padding: 0 6px 0 6px;
+	padding: 0 8px 0 8px;
 	border-radius: 8px;
 }
 .battery-widget .widget-container .label.status-medium {
 	color: var(--yellow);
 	background: rgba(249, 226, 175, 0.25);
 	margin: 4px 0px 4px 0px;
-	padding: 0 6px 0 6px;
+	padding: 0 8px 0 8px;
 	border-radius: 8px;
 }
 .battery-widget .widget-container .label.status-high {
 	color: var(--teal);
 	background: rgba(148, 226, 213, 0.25);
 	margin: 4px 0px 4px 0px;
-	padding: 0 6px 0 6px;
+	padding: 0 8px 0 8px;
 	border-radius: 8px;
 }
 .battery-widget .widget-container .label.status-full {
 	color: var(--green);
 	background: rgba(166, 227, 161, 0.25);
 	margin: 4px 0px 4px 0px;
-	padding: 0 6px 0 6px;
+	padding: 0 8px 0 8px;
 	border-radius: 8px;
 }
 .battery-widget .widget-container .label.status-charging {
 	color: var(--blue);
 	background: rgba(137, 180, 250, 0.25);
 	margin: 4px 0px 4px 0px;
-	padding: 0 6px 0 6px;
+	padding: 0 8px 0 8px;
 	border-radius: 8px;
 }
 
@@ -703,4 +718,288 @@
 }
 .battery-widget .widget-container .icon.status-charging {
 	color: var(--blue);
+}
+
+/* Todo Widget Styles */
+.todo-widget {
+    padding: 0 6px 0 6px;
+}
+.todo-widget .icon {
+    color: #00f8d7;
+    padding: 0;
+}
+.todo-widget .label {
+    font-size: 12px;
+    padding: 0;
+}
+/* Todo Menu Styles */
+.todo-menu {
+    background-color: rgba(24, 25, 27, 0.8);
+    min-width: 400px;
+    max-width: 400px;
+    min-height: 500px;
+    max-height: 500px;
+}
+.todo-menu .header {
+    margin: 16px 10px
+}
+.todo-menu .header .add-task-button,
+.todo-menu .header .tab-buttons {
+    border: none;
+    border-radius: 13px;
+    color: #ffffff;
+    padding: 4px 8px;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0px;
+    font-family: 'JetBrainsMono NFP';
+}
+.todo-menu .header .tab-buttons {
+    margin: 0;
+    font-size: 12px;
+}
+.todo-menu .header .add-task-button:hover {
+    background-color: #0f91e7;
+}
+.todo-menu .header .tab-buttons.in-progress,
+.todo-menu .header .tab-buttons.completed {
+    background-color: transparent;
+}
+.todo-menu .header .tab-buttons.in-progress:checked {
+    color: #7fffd4;
+}
+.todo-menu .header .tab-buttons.completed:checked {
+    color: #ff583b;
+}
+.todo-menu .header .tab-buttons.sort {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-radius: 10px;
+    min-height: 20px;
+    min-width: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    padding: 0;
+    margin: 0 8px 0 0;
+    font-family: 'JetBrainsMono NFP';
+}
+.todo-menu .header .tab-buttons.sort:pressed {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.todo-menu .no-tasks {
+    font-family: 'JetBrainsMono NFP';
+    font-size: 18px;
+    color: #979fa0;
+    font-weight: 400;
+    margin-top: 16px;
+}
+.todo-menu .no-tasks-icon {
+    font-size: 80px;
+    color: #979fa0;
+    font-family: "JetBrainsMono NFP";
+    margin-top: 64px;
+    font-weight: 400;
+}
+
+/* Task item styles */
+.todo-menu .task-item {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 0px 12px 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 0;
+}
+.todo-menu .task-item.expanded {
+    background-color: rgba(211, 214, 219, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.todo-menu .task-item.drop-highlight,
+.todo-menu .task-item.drop-highlight:hover,
+.todo-menu .task-item.drop-highlight:focus {
+    background-color: rgba(0, 120, 212, 0.26);
+    border: 1px solid #007acc;
+}
+.todo-menu .task-item .title {
+    color: #ebebeb;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'JetBrainsMono NFP';
+    padding: 0 8px 8px 8px;
+    margin-top: 6px;
+}
+.todo-menu .task-item.completed .title,
+.todo-menu .task-item.completed .description {
+    text-decoration: line-through;
+    color: #7f8c8d;
+}
+.todo-menu .task-item .description {
+    color: #bdc3c7;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0 8px 8px 8px;
+    font-family: 'JetBrainsMono NFP';
+}
+.todo-menu .task-checkbox {
+    background-color: transparent;
+    border: none;
+    margin-left: 12px;
+    margin-top: 5px;
+    font-size: 18px;
+    color: #ebebeb;
+    font-family: 'JetBrainsMono NFP';
+}
+.todo-menu .task-checkbox:checked {
+    color: #7f8c8d;
+}
+
+/* Task info row styles */
+.todo-menu .task-info-row {
+    margin-left: 8px;
+    margin-bottom: 8px;
+}
+.todo-menu .task-info-row .date-text,
+.todo-menu .task-info-row .category-text {
+    font-family: 'JetBrainsMono NFP';
+    font-weight: 600;
+    color: #7e7f88;
+    font-size: 13px;
+    padding-left: 0px;
+    margin-right: 12px;
+}
+.todo-menu .task-info-row .date-icon,
+.todo-menu .task-info-row .category-icon {
+    font-weight: 400;
+    color: #a7a8b3;
+    font-size: 14px;
+    font-family: 'JetBrainsMono NFP';
+    margin-top: 1px;
+}
+.todo-menu .task-info-row .category-text.important,
+.todo-menu .task-info-row .category-icon.important {
+    color: #ff2600;
+}
+.todo-menu .task-info-row .category-text.urgent,
+.todo-menu .task-info-row .category-icon.urgent {
+    color: #ff583b;
+}
+.todo-menu .task-info-row .category-text.soon,
+.todo-menu .task-info-row .category-icon.soon {
+    color: #7fffd4;
+}
+.todo-menu .task-info-row .category-text.today,
+.todo-menu .task-info-row .category-icon.today {
+    color: #f9e2af;
+}
+.todo-menu .task-info-row .delete-task-button {
+    background-color: rgb(160, 160, 160);
+    color: #000000;
+    font-family: 'JetBrainsMono NFP';
+    font-weight: 600;
+    font-size: 12px;
+    padding: 0 8px;
+    border-radius: 10px;
+    min-height: 20px;
+    max-height: 20px;
+    margin-right: 8px;
+}
+
+/* App dialog style */
+.todo-menu .app-dialog {
+    font-family: 'JetBrainsMono NFP';
+    background-color: #202020;
+}
+.todo-menu .app-dialog .buttons-container {
+    background-color: #171717;
+    margin-top: 16px;
+    border-top: 1px solid #000;
+    max-height: 80px;
+    min-height: 80px;
+    padding: 0 20px 0 20px;
+}
+
+.todo-menu .app-dialog .title-field,
+.todo-menu .app-dialog .desc-field {
+    background-color: #181818;
+    border: 1px solid #303030;
+    border-radius: 4px;
+    padding: 0 6px;
+    font-family: 'JetBrainsMono NFP';
+    font-size: 12px;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin: 10px 0px 5px 0;
+    min-height: 30px;
+}
+.todo-menu .app-dialog .desc-field {
+    max-height: 60px;
+}
+.todo-menu .app-dialog .title-field:focus,
+.todo-menu .app-dialog .desc-field:focus {
+    border-bottom-color: #4cc2ff;
+}
+.todo-menu .app-dialog .button {
+    background-color: #2d2d2d;
+    border: none;
+    border-radius: 4px;
+    font-family: 'JetBrainsMono NFP';
+    font-size: 12px;
+    font-weight: 600;
+    color: #FFFFFF;
+    min-width: 80px;
+    padding: 0 6px;
+    margin: 10px 0 5px 6px;
+    min-height: 28px;
+    outline: none;
+}
+.todo-menu .app-dialog .buttons-container .button {
+    margin: 10px 0 5px 0px;
+    font-size: 13px;
+}
+.todo-menu .app-dialog .button:focus {
+    border: 2px solid #adadad;
+}
+.todo-menu .app-dialog .button:focus,
+.todo-menu .app-dialog .button:hover {
+    background-color: #4A4A4A;
+}
+.todo-menu .app-dialog .button:pressed {
+    background-color: #3A3A3A;
+}
+.todo-menu .app-dialog .button.add {
+    background-color: #0078D4;
+}
+.todo-menu .app-dialog .button.add:focus,
+.todo-menu .app-dialog .button.add:hover {
+    background-color: #0066B2;
+}
+.todo-menu .app-dialog .button.add:pressed {
+    background-color: #00509E;
+}
+.todo-menu .app-dialog .warning-message {
+    background-color: #2b0b0e;
+    border: 1px solid #5a303c;
+    border-radius: 4px;
+    color: #cc9b9f;
+    font-family: 'JetBrainsMono NFP';
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 12px;
+    margin: 4px 0px;
+}
+.todo-menu .app-dialog .category-button {
+    background-color: #2d2d2d;
+    border: none;
+    border-radius: 4px;
+    font-family: 'JetBrainsMono NFP';
+    font-size: 11px;
+    font-weight: 700;
+    color: #afafaf;
+    padding: 0 6px;
+    margin-top: 8px;
+    min-height: 24px;
+    outline: none;
+}
+.todo-menu .app-dialog .category-button:checked {
+    background-color: #535353;
+    color: #ffffff;
 }

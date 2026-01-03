@@ -49,8 +49,8 @@ if wezterm.config_builder then
 end
 
 -- max fps
-config.max_fps = 240
-config.animation_fps = 240
+config.max_fps = 120
+config.animation_fps = 120
 
 --[[
 ============================
@@ -64,7 +64,7 @@ Custom Configuration
 local tab_style = "rounded"
 
 -- leader active indicator prefix
-local leader_prefix = utf8.char(0x1f680) -- ocean wave
+local leader_prefix = utf8.char(0x1f680) -- rocket
 
 
 --[[
@@ -75,7 +75,7 @@ Font
 
 config.font =
     wezterm.font_with_fallback { "JetBrains Mono" }
-config.font_size = 10.0
+config.font_size = 10.5
 
 config.window_decorations = "RESIZE"
 
